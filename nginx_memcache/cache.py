@@ -32,7 +32,8 @@ def get_cache_key(request_path, page_version='',
         cookie_name=CACHE_NGINX_DEFAULT_COOKIE):
     """Use the request path and page version to get cache key."""
     raw_key = u'%s&%s=%s' % (request_path, cookie_name, page_version)
-    return hashlib.md5(raw_key).hexdigest()
+    return raw_key
+#    return hashlib.md5(raw_key).hexdigest()
 
 
 def invalidate_from_request(request, page_version='',
